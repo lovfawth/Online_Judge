@@ -1,0 +1,28 @@
+program Plus;
+var a,b:longint;
+begin
+  assign(input,'1001.in');
+  assign(output,'1001.out');
+  reset(input);
+  rewrite(output);
+  readln(a,b);
+  writeln(a+b);
+  close(input);
+  close(output);
+end.
+
+
+
+
+#include <cstdio>
+void init(){
+     freopen("1001.in","r",stdin);
+     freopen("1001.out","w",stdout);
+     }
+int main(){
+  init();
+  int a,b;
+  scanf("%ld%ld",&a,&b);
+  printf("%ld\n",a+b);
+  return 0;
+}

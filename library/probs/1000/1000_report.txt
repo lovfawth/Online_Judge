@@ -1,0 +1,49 @@
+Free Pascal Code
+
+program Plus;
+var a,b:longint;
+begin
+  readln(a,b);
+  writeln(a+b);
+end.
+
+
+C++ Code
+
+#include <iostream>
+using namespace std;
+int main(){
+  int a,b;
+  cin>>a>>b;
+  cout<<a+b<<endl;
+  return 0;
+}
+
+
+Python Code
+
+a, b = raw_input().split(' ')
+print int(a) + int(b)
+
+
+Java Code
+
+import java.io.*;
+import java.util.Scanner;
+
+
+public class Main {
+
+    /**
+     * @param args
+     * @throws IOException 
+     */
+    public static void main(String[] args) throws IOException {
+        int a, b;
+        Scanner sc = new Scanner(System.in);
+        a = sc.nextInt();
+        b = sc.nextInt();
+        System.out.println(a+b);
+    }
+
+}
