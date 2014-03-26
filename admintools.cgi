@@ -21,6 +21,8 @@ print '
 <title></title>
 </head>
 <body>
+Current position: /<a href="home.html">home</a>/<a href="admintools.cgi">Admin tools</a><br>
+<br>
 ';
 
 my $ret=retrieve('library\library.txt');
@@ -48,7 +50,7 @@ print '<form name="form1" action="addprob.cgi" method="post">
 		<td><input type="text" name="auth"/></td>
 	</tr>
 	<tr>
-		<td align="center"><button type="button"><a href="javascript:document.form1.submit();">Submit</a></button></td>
+		<td align="center"><input type="submit" value="submit"></td>
 	</tr>
 	</tbody>
 </table>

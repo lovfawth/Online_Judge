@@ -22,6 +22,8 @@ print '
 <title></title>
 </head>
 <body>
+Current position: /<a href="../home.html">home</a>/<a href="library.cgi">Problems</a>/<a href="prob.cgi?pid='.$pid.'">'.$pid.'</a>/<a href="submit.cgi?pid='.$pid.'">submit</a><br>
+<br>
 ';
 
 print '<form name="form1" action="judge.cgi" method="post">

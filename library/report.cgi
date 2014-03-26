@@ -22,6 +22,8 @@ print '
 <title></title>
 </head>
 <body>
+Current position: /<a href="../home.html">home</a>/<a href="library.cgi">Problems</a>/<a href="prob.cgi?pid='.$pid.'">'.$pid.'</a>/<a href="submit.cgi?pid='.$pid.'">submit</a>/<a href="javascript:history.go(-1)">judge result</a>/report<br>
+<br>
 ';
 
 open(INPUT,'probs/'.$pid.'/'.$pid.'_report.txt');

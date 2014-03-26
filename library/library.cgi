@@ -21,6 +21,8 @@ print '
 <title></title>
 </head>
 <body>
+Current position: /<a href="../home.html">home</a>/<a href="library.cgi">Problems</a><br>
+<br>
 <table>
 ';
 

@@ -25,6 +25,8 @@ print '
 <title></title>
 </head>
 <body>
+Current position: /<a href="home.html">home</a>/<a href="admintools.cgi">Admin tools</a>/result<br>
+<br>
 ';
 
 unless ($auth eq $paswrd){
