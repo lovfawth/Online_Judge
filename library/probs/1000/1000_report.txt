@@ -3,21 +3,32 @@ Free Pascal Code
 program Plus;
 var a,b:longint;
 begin
+  assign(input,'1000.in');
+  assign(output,'1000.out');
+  reset(input);
+  rewrite(output);
   readln(a,b);
   writeln(a+b);
+  close(input);
+  close(output);
 end.
 
 
 C++ Code
 
-#include <iostream>
-using namespace std;
+#include <cstdio>
+void init(){
+     freopen("1000.in","r",stdin);
+     freopen("1000.out","w",stdout);
+     }
 int main(){
+  init();
   int a,b;
-  cin>>a>>b;
-  cout<<a+b<<endl;
+  scanf("%ld%ld",&a,&b);
+  printf("%ld\n",a+b);
   return 0;
 }
+
 
 
 Python Code

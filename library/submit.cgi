@@ -43,7 +43,7 @@ print '<form name="form1" action="judge.cgi" method="post">
 		<td><textarea cols="70" rows="30" name="code" id="code"/></textarea></td>
 	</tr>
 	<tr>
-		<td align="center"><button type="button"><a href="javascript:document.form1.submit();">Submit</a></button></td>
+		<td align="center"><input type="submit" value="submit"></td>
 	</tr>
 	</tbody>
 </table>

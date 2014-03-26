@@ -35,7 +35,7 @@ while (<INPUT>){
 
 
 print '
-<button type="button"><a href="submit.cgi?pid='.$pid.'">Submit</a></button>
+<input type="button" value="submit" onclick="location.href='."\'submit.cgi?pid=$pid\'".';">
 </body></html>';
 
 

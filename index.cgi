@@ -22,7 +22,7 @@ print '
   <frame name="header" src="header.cgi" scrolling="none">
   <frameset cols="12%,*">
 	<frame name="menu" src= "menu.cgi" scrolling ="auto">
-	<frame name="content" src="" scrolling="auto">
+	<frame name="content" src="home.html" scrolling="auto">
   </frameset>
  
 </frameset>

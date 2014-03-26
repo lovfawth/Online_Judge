@@ -1,8 +1,8 @@
 program Plus;
 var a,b:longint;
 begin
-  assign(input,'1001.in');
-  assign(output,'1001.out');
+  assign(input,'1000.in');
+  assign(output,'1000.out');
   reset(input);
   rewrite(output);
   readln(a,b);
@@ -16,8 +16,8 @@ end.
 
 #include <cstdio>
 void init(){
-     freopen("1001.in","r",stdin);
-     freopen("1001.out","w",stdout);
+     freopen("1000.in","r",stdin);
+     freopen("1000.out","w",stdout);
      }
 int main(){
   init();
