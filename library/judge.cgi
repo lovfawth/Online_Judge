@@ -5,6 +5,7 @@ use CGI;
 use Data::Dumper;
 use Storable;
 use JSON;
+use Win32::Job;
 
 my $cgi=CGI->new;
 print $cgi->header(-type=>"text/html");
@@ -68,19 +69,32 @@ my $num=@ret;
 $num/=2;
 $num--;
 my $wa=0;
+my $timedout=0;
 for (my $i1=1;$i1<=$num;$i1++){
 	my $copyin='copy '."probs\\$pid\\".$pid."_".$i1.".in $pid.in";
 	`$copyin`;
 	my $exe="$pid.exe";
 	#$exe=~s/\s//g;
-	my $return=`$exe`;
-	my $fccmd="fc $pid.out probs/$pid/".$pid."_$i1.out";
-	my $fc=`$fccmd`;
-	`del $pid.out`;
-	`del $pid.in`;
-	unless ($fc =~ /FC: no differences encountered/){
-		$wa=1;
+	#my $return=`$exe`;
+	my $job=Win32::Job->new();
+	my $finished;
+	#$job->spawn(undef,"$exe",(),);
+	$job->spawn(undef,"$exe",(),);
+	$finished=$job->run(1);
+	unless ($finished){
+		$timedout=1;
+		`del $pid.out`;
+		`del $pid.in`;
 		last;
+	}else{
+		my $fccmd="fc $pid.out probs/$pid/".$pid."_$i1.out";
+		my $fc=`$fccmd`;
+		`del $pid.out`;
+		`del $pid.in`;
+		unless ($fc =~ /FC: no differences encountered/){
+			$wa=1;
+			last;
+		}
 	}
 }
 
@@ -91,7 +105,9 @@ for (my $i1=1;$i1<=$num;$i1++){
 
 if ($wa){
 	print 'Wrong Answer!';
-}else{
+}elsif ($timedout) {
+	print 'Time out!';
+}else {
 	print 'Accepted!';
 }
 
