@@ -19,6 +19,8 @@ print '<html><head>
 	<br>
 	<a href="library/library.cgi" target="content">Problems</a>
 	<br>
+	<a href="log.cgi" target="content">Judge Log</a>
+	<br>
 	<a href="admintools.cgi" target="content">Admin Tools</a>
 	<br>
 	<a href="help.html" target="content">Help</a>
