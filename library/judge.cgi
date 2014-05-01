@@ -101,15 +101,37 @@ for (my $i1=1;$i1<=$num;$i1++){
 #my $delexe="$pid.exe";
 #$delexe=~s/\s//g;
 `del $pid.exe`;
-`del $source`;
+
+
+my($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time());
+my $format_time=sprintf("%d-%02d-%02d %02d:%02d:%02d",$year+1900,$mon+1,$mday,$hour,$min,$sec);
+my $t=time();
+`move $source $t$lang.txt`;
+`move $t$lang.txt ../code/`;
+open(LOG,">>../log/log.txt");
+print LOG $format_time."_";
+if ($lang eq "cpp"){
+	print LOG "C++_";
+}else{
+	print LOG "Pascal_";
+}
+
+
+print LOG "$pid\_$t$lang\_";
+
 
 if ($wa){
 	print 'Wrong Answer!';
+	print LOG "Wrong Answer\n";
 }elsif ($timedout) {
-	print 'Time out!';
+	print 'Time Out!';
+	print LOG "Time Out\n";
 }else {
 	print 'Accepted!';
+	print LOG "Accepted\n";
 }
+
+close(LOG);
 
 print '<br><a href="report.cgi?pid='.$pid.'">View report</a>';
 

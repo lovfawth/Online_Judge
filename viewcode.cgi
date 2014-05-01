@@ -8,8 +8,9 @@ use JSON;
 
 my $cgi=CGI->new;
 print $cgi->header(-type=>"text/html");
+my $sid=$cgi->param("sid");
 
-open(INPUT,'log/log.txt');
+
 
 print '
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -23,29 +24,18 @@ print '
 <body>
 Current position: /<a href="../home.html">home</a>/<a href="log.cgi">Judge Log</a><br>
 <br>
+<pre>
 ';
 
-print '<table>
-	<tr>
-		<th>Submit Time</th>
-		<th>Language</th>
-		<th>Problem ID</th>
-		<th>Source Code</th>
-		<th>Flag</th>
-	</tr>
-	';
+open(INPUT, "code/$sid.txt");
 
-while (<INPUT>){
-	my $line=$_;
-	my @charas=split(/_/,$line);
-	print '<tr>
-		<td>'.$charas[0].'</td>
-		<td>'.$charas[1].'</td>
-		<td>'.$charas[2].'</td>
-		<td><a href="viewcode.cgi?sid='.$charas[3].'">Click to view</a></td>
-		<td>'.$charas[4].'</td>
-	</tr>';
+while (!eof(INPUT)){
+	$char=getc(INPUT);
+	print $char;
 }
 
 
-print '</body></html>';
+print '</pre>
+</body>
+</html>
+';

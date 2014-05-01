@@ -13,6 +13,7 @@ print '<html><head>
  <meta name="keywords" content="..." />
  <meta name="robots" content="all,follow" />
  <meta name="description" content="..." />
+ <link href="css/basic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<a href="home.html" target="content">Home</a>
@@ -20,6 +21,8 @@ print '<html><head>
 	<a href="library/library.cgi" target="content">Problems</a>
 	<br>
 	<a href="log.cgi" target="content">Judge Log</a>
+	<br>
+	<a href="statistics.cgi" target="content">Statistics</a>
 	<br>
 	<a href="admintools.cgi" target="content">Admin Tools</a>
 	<br>

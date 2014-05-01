@@ -16,13 +16,13 @@ end.
 
 #include <cstdio>
 void init(){
-     freopen("1000.in","r",stdin);
-     freopen("1000.out","w",stdout);
-     }
+	freopen("1000.in","r",stdin);
+	freopen("1000.out","w",stdout);
+	}
 int main(){
-  init();
-  int a,b;
-  scanf("%ld%ld",&a,&b);
-  printf("%ld\n",a+b);
-  return 0;
+	init();
+	int a,b;
+	scanf("%ld%ld",&a,&b);
+	printf("%ld\n",a+b);
+	return 0;
 }

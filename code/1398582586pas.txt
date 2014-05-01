@@ -1,0 +1,12 @@
+program Plus;
+var a,b:longint;
+begin
+  assign(input,'1000.in');
+  assign(output,'1000.out');
+  reset(input);
+  rewrite(output);
+  readln(a,b);
+  writeln(a+b);
+  close(input);
+  close(output);
+end.
