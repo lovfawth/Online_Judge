@@ -17,15 +17,14 @@ print '
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <title>Online Judge</title>
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
 </head>
-<frameset rows="80,*" framespacing="0" border="0" frameborder="0">
+<frameset rows="100,*" framespacing="0" border="0" frameborder="0">
   <frame name="header" src="header.cgi" scrolling="none">
   <frameset cols="12%,*">
 	<frame name="menu" src= "menu.cgi" scrolling ="auto">
 	<frame name="content" src="home.html" scrolling="auto">
   </frameset>
- 
 </frameset>
-
 </html>
 ';

@@ -13,6 +13,18 @@ print '
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
 </head>
-<b>Welcome to Online Judge!</b>
+<table width="100%">
+	<tbody border="0">
+		<tr border="0">
+			<td border="0">
+				<img border="0" src="pic/header.png" height="78">
+			</td>
+			<td border="0" align="right">
+				<img border="0" src="pic/logo3.gif" height="78">
+			</td>
+		</tr>
+	<tbody>
+</table>
 </html>';

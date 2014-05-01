@@ -1,3 +1,17 @@
+#!C:\Perl64\bin\perl.exe
+
+#use strict;
+use CGI;
+use Data::Dumper;
+use Storable;
+use JSON;
+
+my $cgi=CGI->new;
+print $cgi->header(-type=>"text/html");
+
+
+
+print '
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhml" xml:lang="en" lang="en">
 <html>
@@ -5,11 +19,10 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 <title></title>
-<link href="css/basic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-Current position: /<a href="home.html">home</a><br>
+Current position: /<a href="../home.html">home</a>/<a href="log.cgi">Judge Log</a><br>
 <br>
-This is a simple online judge system.<br>
-supported by <a href="mailto:123378840@qq.com">Zhao, Zhongjie</a>.
-</body></html>
+';
+
+
