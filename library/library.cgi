@@ -17,6 +17,7 @@ print '
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link href="../css/basic.css" rel="stylesheet" type="text/css" />
 
 <title></title>
 </head>
@@ -32,14 +33,15 @@ Current position: /<a href="../home.html">home</a>/<a href="library.cgi">Problem
 #my $ret=retrieve("library.txt");
 #print Dumper $ret;
 
-my $ret=retrieve("library.txt");
+open(INPUT, "library.txt");
 my $total=0;
-foreach (sort @$ret){
+while (my $line=<INPUT>){
 	if ($total%5==0){
 		print '<tr>
 		';
 	}
-	print '<td><a href="prob.cgi?pid='.$_.'">'.$_.'</a></td>
+	my @info=split(/_/,$line);
+	print '<td><a href="prob.cgi?pid='.$info[0].'">'.$info[0].'</a></td>
 	';
 	$total++;
 	if ($total%5==0){

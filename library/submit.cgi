@@ -18,6 +18,7 @@ print '
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link href="../css/basic.css" rel="stylesheet" type="text/css" />
 
 <title></title>
 </head>
