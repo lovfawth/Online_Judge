@@ -26,14 +26,16 @@ Current position: /<a href="home.html">home</a>/<a href="admintools.cgi">Admin t
 <br>
 ';
 
-my $ret=retrieve('library\library.txt');
-my $pid=1000;
-foreach (sort @$ret){
-	unless ($pid==$_){
-		last;
-	}
-	$pid+=1;
+open(INPUT, "library/library.txt");
+my $pid;
+while (my $line=<INPUT>){
+	my @charas=split(/_/, $line);
+	$pid=@charas[0];
 }
+
+$pid++;
+
+close(INPUT);
 
 print '<form name="form1" action="addprob.cgi" method="post">
 <table>
@@ -41,6 +43,10 @@ print '<form name="form1" action="addprob.cgi" method="post">
 	<tr>
 		<td width="200">Problem ID:</td>
 		<td><input type="text" name="pid" value="'.$pid.'" readonly="readonly"/></td>
+	</tr>
+	<tr>
+		<td width="200">Problem Title:</td>
+		<td><input type="text" name="ptitle"/></td>
 	</tr>
 	<tr>
 		<td width="200">Problem Discription:</td>

@@ -26,7 +26,7 @@ Current position: /<a href="../home.html">home</a>/<a href="log.cgi">Judge Log</
 <br>
 ';
 
-print '<table>
+print '<table width="100%" border="1">
 	<tr>
 		<th>Submit Time</th>
 		<th>Language</th>
@@ -40,11 +40,11 @@ while (<INPUT>){
 	my $line=$_;
 	my @charas=split(/_/,$line);
 	print '<tr>
-		<td>'.$charas[0].'</td>
-		<td>'.$charas[1].'</td>
-		<td>'.$charas[2].'</td>
-		<td><a href="viewcode.cgi?sid='.$charas[3].'">Click to view</a></td>
-		<td>'.$charas[4].'</td>
+		<td align="center">'.$charas[0].'</td>
+		<td align="center">'.$charas[1].'</td>
+		<td align="center">'.$charas[2].'</td>
+		<td align="center"><a href="viewcode.cgi?sid='.$charas[3].'" target="_blank">Click to view</a></td>
+		<td align="center">'.$charas[4].'</td>
 	</tr>';
 }
 

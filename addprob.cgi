@@ -10,6 +10,7 @@ my $cgi=CGI->new;
 print $cgi->header(-type=>"text/html");
 
 my $pid=$cgi->param("pid");
+my $ptitle=$cgi->param("ptitle");
 my $code=$cgi->param("code");
 my $auth=$cgi->param("auth");
 my $paswrd="auth";
@@ -38,9 +39,9 @@ my $dir='library\probs\ '.$pid.' \ ';
 $dir=~s/\s//g;
 my $res=`md $dir`;
 
-my $ret=retrieve('library\library.txt');
-push @$ret, $pid;
-store $ret, "library/library.txt";
+open(INPUT, ">>library/library.txt");
+print INPUT $pid.'_'.$ptitle."\n";
+close(INPUT);
 
 open(OUTPUT,'>library/probs/'.$pid.'/'.$pid.'.txt');
 

@@ -24,30 +24,30 @@ print '
 <body>
 Current position: /<a href="../home.html">home</a>/<a href="library.cgi">Problems</a><br>
 <br>
-<table>
 ';
 
-#my @result;
-#push @result, 1000;
-#store \@result, "library.txt";
-#my $ret=retrieve("library.txt");
-#print Dumper $ret;
+print '<form name="form1" action="prob.cgi" method="post">Enter Problem ID: <input type="text" name="pid"/><input type="submit" value="Go!"></form>
+<br>
+';
+
+
+print '<table width="80%" border="1">
+	<tr>
+		<th>Problem ID</th>
+		<th>Problem Title</th>
+	</tr>
+';
+
+
 
 open(INPUT, "library.txt");
 my $total=0;
 while (my $line=<INPUT>){
-	if ($total%5==0){
-		print '<tr>
-		';
-	}
 	my @info=split(/_/,$line);
-	print '<td><a href="prob.cgi?pid='.$info[0].'">'.$info[0].'</a></td>
+	print '<tr>
+	<td align="center" width="30%">'.$info[0].'</td><td align="center"><a href="prob.cgi?pid='.$info[0].'">'.$info[1].'</a></td>
+	</tr>
 	';
-	$total++;
-	if ($total%5==0){
-		print '</tr>
-		';
-	}
 }
 
 print '</table>
