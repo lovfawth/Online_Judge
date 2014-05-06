@@ -26,7 +26,21 @@ print '
 Current position: /<a href="../home.html">home</a>/<a href="library.cgi">Problems</a>/<a href="prob.cgi?pid='.$pid.'">'.$pid.'</a><br>
 <br>
 ';
-
+open(LIB,"library.txt");
+my $flag=1;
+while (my $line=<LIB>){
+	my @info=split(/_/,$line);
+	if ($info[0] eq $pid){
+		$flag=0;
+		last;
+	}
+}
+close(LIB);
+if ($flag){
+	print 'There is not a #'.$pid.' problem. Please go <a href="javascript:history.go(-1)">back</a>
+	</body></html>';
+	return;
+}
 
 print '<b>Problem '.$pid.':</b><br><br>';
 
@@ -36,10 +50,10 @@ while (<INPUT>){
 	print $_."<br>";
 }
 
+close(INPUT);
 
 print '
 <input type="button" value="submit" onclick="location.href='."\'submit.cgi?pid=$pid\'".';">
 </body></html>';
 
 
-close(INPUT);

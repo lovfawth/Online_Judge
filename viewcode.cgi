@@ -23,7 +23,6 @@ print '
 <title></title>
 </head>
 <body>
-Current position: /<a href="../home.html">home</a>/<a href="log.cgi">Judge Log</a><br>
 <br>
 <pre>
 ';
