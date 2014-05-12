@@ -125,8 +125,8 @@ if ($wa){
 	print 'Wrong Answer!';
 	print LOG "Wrong Answer\n";
 }elsif ($timedout) {
-	print 'Time Out!';
-	print LOG "Time Out\n";
+	print 'Time Limit Excceeded!';
+	print LOG "Time Limit Excceeded\n";
 }else {
 	print 'Accepted!';
 	print LOG "Accepted\n";

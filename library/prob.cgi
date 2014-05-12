@@ -39,7 +39,7 @@ close(LIB);
 if ($flag){
 	print 'There is not a #'.$pid.' problem. Please go <a href="javascript:history.go(-1)">back</a>
 	</body></html>';
-	return;
+	exit(0);
 }
 
 print '<b>Problem '.$pid.':</b><br><br>';
