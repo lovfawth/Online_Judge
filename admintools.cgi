@@ -54,7 +54,7 @@ print '<form name="form1" action="addprob.cgi" method="post">
 	</tr>
 	<tr>
 		<td width="200">Authentication Code:</td>
-		<td><input type="text" name="auth"/></td>
+		<td><input type="password" name="auth"/></td>
 	</tr>
 	<tr>
 		<td align="center"><input type="submit" value="submit"></td>
