@@ -19,10 +19,14 @@ print '
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link href="../css/basic.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.js" type="text/javascript"></script>
+<script src="js/highcharts.js" type="text/javascript"></script>
+<script src="js/addinfo.js" type="text/javascript"></script>
 
 <title></title>
 </head>
 <body>
+<input type="hidden" id="pid" value="'.$pid.'"/>
 Current position: /<a href="../home.html">home</a>/<a href="library.cgi">Problems</a>/<a href="prob.cgi?pid='.$pid.'">'.$pid.'</a><br>
 <br>
 ';
@@ -53,7 +57,12 @@ while (<INPUT>){
 close(INPUT);
 
 print '
+<br>
 <input type="button" value="submit" onclick="location.href='."\'submit.cgi?pid=$pid\'".';">
+<br>
+<br>
+Additional information:
+<div id="pie_chart" class="pie"></div>
 </body></html>';
 
 

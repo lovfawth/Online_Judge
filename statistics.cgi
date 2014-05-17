@@ -18,11 +18,17 @@ print '
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link href="css/basic.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.js" type="text/javascript"></script>
+<script src="js/highcharts.js" type="text/javascript"></script>
+<script src="js/statistics.js" type="text/javascript"></script>
 
 <title></title>
 </head>
 <body>
 Current position: /<a href="../home.html">home</a>/<a href="log.cgi">Judge Log</a><br>
+<br>
+<br>
+<div id="pie_chart" class="pie"></div>
 <br>
 ';
 

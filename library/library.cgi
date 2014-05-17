@@ -50,6 +50,10 @@ while (my $line=<INPUT>){
 	';
 }
 
-print '</table>
+print '</table>';
+print '
+<br>
+<form name="form1" action="prob.cgi" method="post">Enter Problem ID: <input type="text" name="pid"/><input type="submit" value="Go!"></form>
+<br>
 </body>
 </html>';
