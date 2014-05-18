@@ -17,12 +17,15 @@ print '
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="refresh" content="15">
 <link href="css/basic.css" rel="stylesheet" type="text/css" />
 
 <title></title>
 </head>
 <body>
 Current position: /<a href="../home.html">home</a>/<a href="log.cgi">Judge Log</a><br>
+<br>
+<input type=button value="Refresh" onclick="location.reload()">
 <br>
 ';
 
@@ -36,7 +39,13 @@ print '<table width="100%" border="1">
 	</tr>
 	';
 
+my @log;
+
 while (<INPUT>){
+	push @log,$_;
+}
+
+foreach (reverse @log){
 	my $line=$_;
 	my @charas=split(/_/,$line);
 	print '<tr>
@@ -47,6 +56,5 @@ while (<INPUT>){
 		<td align="center">'.$charas[4].'</td>
 	</tr>';
 }
-
 
 print '</body></html>';
