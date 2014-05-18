@@ -22,6 +22,7 @@ print '
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link href="../css/basic.css" rel="stylesheet" type="text/css" />
 
 <title></title>
 </head>
@@ -31,10 +32,21 @@ Current position: /<a href="home.html">home</a>/<a href="admintools.cgi">Admin t
 ';
 
 unless ($auth eq $paswrd){
-	print "Autnentication failed!";
-	print '</body></html>';
+	print "Authentication failed!";
+	print '<br>
+	<input type="button" name="Submit" value="Back" onclick="javascript:history.go(-1)"/>
+	</body></html>';
 	exit(0);
 }
+
+if ($ptitle eq "" || $code eq ""){
+	print "Please fill in all blanks!";
+	print '<br>
+	<input type="button" name="Submit" value="Back" onclick="javascript:history.go(-1)"/>
+	</body></html>';
+	exit(0);
+}
+
 my $dir='library\probs\ '.$pid.' \ ';
 $dir=~s/\s//g;
 my $res=`md $dir`;
