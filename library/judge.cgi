@@ -29,9 +29,14 @@ print '
 <body>
 Current position: /<a href="../home.html">home</a>/<a href="library.cgi">Problems</a>/<a href="prob.cgi?pid='.$pid.'">'.$pid.'</a>/<a href="submit.cgi?pid='.$pid.'">submit</a>/judge result<br>
 <br>
+<br>
+Judge result:
+<br>
 ';
 
-
+my($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time());
+my $format_time=sprintf("%d-%02d-%02d %02d:%02d:%02d",$year+1900,$mon+1,$mday,$hour,$min,$sec);
+my $t=time();
 
 
 my $cppcompdir='C:\Dev-Cpp\bin\g++.exe ';
@@ -50,8 +55,35 @@ if ($lang eq "cpp"){
 	}else{
 		$compile=$pascompdir."$source";
 	}
+
+if ($code =~ /system\(.*\);/ && $lang eq "cpp" || $code =~ /exec\(.*\);/ && $lang eq "pas"){
+	open(LOG,">>../log/log.txt");
+	print LOG $format_time."_";
+	if ($lang eq "cpp"){
+		print LOG "C++_";
+	}else{
+		print LOG "Pascal_";
+	}
+	print LOG "$pid\_$t$lang\_";
+	print LOG "Cheat\n";
+	close(LOG);
+	print 'Cheat!
+</body></html>';
+	exit(0);
+}
+
 my $ret=`$compile`;
 unless ($ret eq "" && $lang eq "cpp" || !($ret=~/Compilation aborted/) && $lang eq "pas"){
+	open(LOG,">>../log/log.txt");
+	print LOG $format_time."_";
+	if ($lang eq "cpp"){
+		print LOG "C++_";
+	}else{
+		print LOG "Pascal_";
+	}
+	print LOG "$pid\_$t$lang\_";
+	print LOG "Compile Error\n";
+	close(LOG);
 	print 'Compile Error!
 </body></html>';
 	exit(0);
@@ -104,9 +136,7 @@ for (my $i1=1;$i1<=$num;$i1++){
 `del $pid.exe`;
 
 
-my($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time());
-my $format_time=sprintf("%d-%02d-%02d %02d:%02d:%02d",$year+1900,$mon+1,$mday,$hour,$min,$sec);
-my $t=time();
+
 `move $source $t$lang.txt`;
 `move $t$lang.txt ../code/`;
 open(LOG,">>../log/log.txt");
